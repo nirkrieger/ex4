@@ -8,6 +8,9 @@ import java.util.Iterator;
 
 public class AVLTree implements Iterable<Integer> {
 
+	private static final int AVL_H0_MIN_NODES=1;
+	private static final int AVL_H1_MIN_NODES=2;
+
 
 	/**
 	 * The default constructor.
@@ -89,7 +92,13 @@ public class AVLTree implements Iterable<Integer> {
 	 * @return the minimum number of nodes in an AVL tree of the given height.
 	 */
 	public static int findMinNodes(int h) {
-		return 0;
+		if (h==0){
+			return AVL_H0_MIN_NODES;
+		}
+		if(h==1){
+			return AVL_H1_MIN_NODES;
+		}
+		return 1+findMaxNodes(h-1)+findMaxNodes(h-2);
 	}
 
 	/**
@@ -98,6 +107,7 @@ public class AVLTree implements Iterable<Integer> {
 	 * @return the maximum number of nodes in an AVL tree of the given height.
 	 */
 	public static int findMaxNodes(int h) {
-		return 0;
+
+		return (int)Math.pow(2,h+1)+1;
 	}
 }
