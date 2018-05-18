@@ -6,10 +6,19 @@ import java.util.Iterator;
  * An implementation of the AVL tree data structure.
  */
 
-public class AVLTree implements Iterable<Integer> {
+public class AVLTree implements Tree {
+
+
+
+
 
 	private static final int AVL_H0_MIN_NODES=1;
 	private static final int AVL_H1_MIN_NODES=2;
+	private static final int NOT_CONTAINED_INDICATOR =-1;
+	private AvlNode lastNode;//search for contained last node;
+	private boolean lastNodeRight;
+	private AvlNode root;
+	private int numOfNodes=0;
 
 
 	/**
@@ -46,6 +55,20 @@ public class AVLTree implements Iterable<Integer> {
 	 * otherwise.
 	 */
 	public boolean add(int newValue) {
+		if (root==null){
+			root= new AvlNode(null, newValue);
+			numOfNodes++;
+			return true;
+		}
+		if (contains(newValue)!=NOT_CONTAINED_INDICATOR)
+			return false;
+		if (lastNodeRight){lastNode.setRightSon(new AvlNode(lastNode,newValue));}
+		if (!lastNodeRight){lastNode.setLeftSon(new AvlNode(lastNode,newValue));}
+		numOfNodes++;
+		checkDisorder();
+
+
+
 		return true;
 	}
 
@@ -57,7 +80,28 @@ public class AVLTree implements Iterable<Integer> {
 	 * value if it was found in the tree, -1 otherwise.
 	 */
 	public int contains(int searchVal) {
-		return 0;
+		if (root==null)
+			return NOT_CONTAINED_INDICATOR;
+		int heightCounter=0;
+		AvlNode currentNode=root;
+		while (true){
+			if (currentNode.getKey()==searchVal)
+				return heightCounter;
+			if (searchVal>currentNode.getKey()){
+				if(currentNode.getRightSon()==null){
+					lastNode = currentNode;
+					lastNodeRight =true;
+					return NOT_CONTAINED_INDICATOR;}
+				heightCounter++;
+				currentNode=currentNode.getRightSon();
+				}
+			if(currentNode.getLeftSon()==null){
+				lastNode=currentNode;
+				lastNodeRight =false;
+				return NOT_CONTAINED_INDICATOR;}
+			heightCounter++;
+			currentNode=currentNode.getLeftSon();
+		}
 	}
 
 	/**
@@ -83,6 +127,15 @@ public class AVLTree implements Iterable<Integer> {
 	 */
 	@Override
 	public Iterator<Integer> iterator() {
+		return null;
+	}
+
+	/**
+	 * Calculates the Inorder traversal of this tree.
+	 * @return A Array-List of the tree in inorder traversal.
+
+	 */
+	protected final java.util.ArrayList<AvlNode> inorder(){
 		return null;
 	}
 
@@ -120,5 +173,10 @@ public class AVLTree implements Iterable<Integer> {
 	public static int findMaxNodes(int h) {
 
 		return (int)Math.pow(2,h+1)+1;
+	}
+
+
+	private void checkDisorder(){
+
 	}
 }
