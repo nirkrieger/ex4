@@ -2,15 +2,17 @@ package oop.ex4.data_structures;
 
 import java.util.NoSuchElementException;
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 /**
  * An implementation of the AVL tree data structure.
  */
 
-public class AVLTree implements Tree {
-	private static final int VIOLATION_1_LEFT = 2;
-	private static final int VIOLATION_1_RIGHT = -2;
-	private static final int VIOLATION_2_DIFFERENT_SIDE = -1;
+public class AvlTree implements Tree {
+	private static final int VIOLATION_LEFT = 2;
+	private static final int VIOLATION_RIGHT_LEFT = 1;
+	private static final int VIOLATION_RIGHT = -2;
+	private static final int VIOLATION_LEFT_RIGHT = -1;
 	private static final int AVL_H0_MIN_NODES = 1;
 	private static final int AVL_H1_MIN_NODES = 2;
 	/**
@@ -53,6 +55,7 @@ public class AVLTree implements Tree {
 	 * Representing an AVL node class, as an inner class within AVL Tree.
 	 */
 	private class AvlNode {
+		private static final int NO_SON_BALANCE_FACTOR = -1;
 		/**
 		 * Parent of node.
 		 */
@@ -72,6 +75,10 @@ public class AVLTree implements Tree {
 		/**
 		 * Node's balance factor.
 		 */
+		private int height;
+		/**
+		 * Node's balance factor.
+		 */
 		private int balanceFactor;
 
 		/**
@@ -85,7 +92,7 @@ public class AVLTree implements Tree {
 			this.leftSon = null;
 			this.rightSon = null;
 			this.value = value;
-			balanceFactor = 0;
+			height = 0;
 		}
 
 		/**
@@ -126,21 +133,28 @@ public class AVLTree implements Tree {
 		/**
 		 * Updates node's balance factor.
 		 */
-		private void updateBalanceFactor() {
-			int checkLeft = -1;
-			int checkeRight = -1;
-			if (leftSon != null)
-				checkLeft = leftSon.balanceFactor;
-			if (rightSon != null)
-				checkeRight = rightSon.balanceFactor;
-			balanceFactor = checkLeft + checkeRight;
+		private void updateHeightAndBalance() {
+			int checkLeft = NO_SON_BALANCE_FACTOR, checkRight = NO_SON_BALANCE_FACTOR;
+			if (hasLeftSon())
+				checkLeft = leftSon.height;
+			if (hasRightSon())
+				checkRight = rightSon.height;
+			height = (Math.max(checkLeft, checkRight) + 1);
+			balanceFactor = checkLeft - checkRight;
+		}
+		@Override
+		public String toString() {
+			return "AvlNode{" +
+					"value=" + value +
+					", balanceFactor=" + balanceFactor +
+					'}';
 		}
 	}
 
 	/**
 	 * The default constructor.
 	 */
-	public AVLTree() {
+	public AvlTree() {
 		root = null;
 	}
 
@@ -150,8 +164,8 @@ public class AVLTree implements Tree {
 	 *
 	 * @param tree The AVL tree to be copied.
 	 */
-	public AVLTree(AVLTree tree) {
-		AVLTree copyTree = new AVLTree();
+	public AvlTree(AvlTree tree) {
+		AvlTree copyTree = new AvlTree();
 		Iterator myIter = tree.iterator();
 		while (myIter.hasNext()) {
 			copyTree.add((int) myIter.next());
@@ -164,7 +178,7 @@ public class AVLTree implements Tree {
 	 *
 	 * @param data the values to add to tree.
 	 */
-	public AVLTree(int[] data) {
+	public AvlTree(int[] data) {
 		root = null;
 		// iterate array and add to tree.
 		for (int value : data) {
@@ -206,7 +220,7 @@ public class AVLTree implements Tree {
 			if (operation == Operator.ADD && !currentNode.hasLeftSon()) {
 				// left son is null, add the new value in its place.
 				currentNode.leftSon = new AvlNode(currentNode, value);
-				currentNode.updateBalanceFactor();
+				currentNode.updateHeightAndBalance();
 			} else {
 				// go recursively to the left son.
 				retValue = binarySearchOperation(value, height + 1, currentNode.leftSon, operation);
@@ -216,13 +230,16 @@ public class AVLTree implements Tree {
 			if (operation == Operator.ADD && !currentNode.hasRightSon()) {
 				// right son is null, add the new value in its place.
 				currentNode.rightSon = new AvlNode(currentNode, value);
-				currentNode.updateBalanceFactor();
+				currentNode.updateHeightAndBalance();
 			} else {
 				// go recursively to the right son.
 				retValue = binarySearchOperation(value, height + 1, currentNode.rightSon, operation);
 			}
 		}
 		if (operation != Operator.CONTAINS && retValue == SUCCESS_FLAG) {
+			if (currentNode != null) {
+				currentNode.updateHeightAndBalance();
+			}
 			checkDisorder(currentNode);
 		}
 		return retValue;
@@ -239,9 +256,9 @@ public class AVLTree implements Tree {
 			return null;
 		}
 		// if current has a right son, the min node of the right sub tree is the successor.
-		if (current.rightSon != null) {
+		if (current.hasRightSon()) {
 			current = current.rightSon;
-			while (current.leftSon != null) {
+			while (current.hasLeftSon()) {
 				current = current.leftSon;
 			}
 			return current;
@@ -250,7 +267,40 @@ public class AVLTree implements Tree {
 			return null;
 		} else {
 			AvlNode iterNode = current.parent;
-			while (iterNode.parent != null && iterNode != iterNode.parent.rightSon) {
+			while (iterNode.isARightSon()) {
+				// the successor is an ancestor, iterate ancestors.
+				iterNode = iterNode.parent;
+			}
+			if (iterNode.parent == null) {
+				return null;
+			}
+			return iterNode.parent;
+		}
+	}
+
+	/**
+	 * Returns the predecessor of the current node.
+	 *
+	 * @param current current node.
+	 * @return AvlNode predecessor.
+	 */
+	private AvlNode predecessor(AvlNode current) {
+		if (current == null) {
+			return null;
+		}
+		// if current has a right son, the min node of the right sub tree is the successor.
+		if (current.hasLeftSon()) {
+			current = current.leftSon;
+			while (current.hasRightSon()) {
+				current = current.rightSon;
+			}
+			return current;
+			// else - go up on parents until parent is null or iterNode is parent's leftSon
+		} else if (current.parent == null) {
+			return null;
+		} else {
+			AvlNode iterNode = current.parent;
+			while (iterNode.isALeftSon()) {
 				// the successor is an ancestor, iterate ancestors.
 				iterNode = iterNode.parent;
 			}
@@ -269,6 +319,7 @@ public class AVLTree implements Tree {
 	 */
 	private void swap(AvlNode current, AvlNode replacer) {
 		// TODO: maybe exception here?
+		// TODO: NOT SWAPPING CORRECTLY!!!!
 		if (current == null) {
 			return;
 		}
@@ -311,68 +362,91 @@ public class AVLTree implements Tree {
 				// else, has both right and left. find successor and switch.
 			} else {
 				// get successor.
-				AvlNode successor = successor(toDelete);
-				swap(toDelete, successor);
-				successor.leftSon = toDelete.leftSon;
-				successor.leftSon.parent = successor;
-				newCurrent = successor;
+//				AvlNode successor = successor(toDelete);
+				AvlNode predecessor = predecessor(toDelete);
+				swap(toDelete, predecessor);
+				predecessor.rightSon = toDelete.rightSon;
+				predecessor.rightSon.parent = predecessor;
+				newCurrent = predecessor;
 			}
 		}
-		newCurrent.updateBalanceFactor();
 		return newCurrent;
 	}
 
 	private void checkDisorder(AvlNode node) {
+		if (node == null) {
+			return;
+		}
 		int currentBalance = node.balanceFactor;
-		if (currentBalance == VIOLATION_1_LEFT) {
-			if (node.leftSon.balanceFactor == VIOLATION_2_DIFFERENT_SIDE) {
+		if (currentBalance == VIOLATION_LEFT) {
+			if (node.leftSon.balanceFactor == VIOLATION_LEFT_RIGHT) {
 				rotateLeft(node.leftSon);
 			}
 			rotateRight(node);
 		}
-		if (currentBalance == VIOLATION_1_RIGHT) {
-			if (node.rightSon.balanceFactor == VIOLATION_2_DIFFERENT_SIDE) {
+		if (currentBalance == VIOLATION_RIGHT) {
+			if (node.rightSon.balanceFactor == VIOLATION_RIGHT_LEFT) {
 				rotateRight(node.rightSon);
 			}
 			rotateLeft(node);
 		}
 	}
 
+	/**
+	 * Rotates the subtree rooted at the given node to the right.
+	 * @param node node to rotate.
+	 */
 	private void rotateRight(AvlNode node) {
 		AvlNode currentLeft = node.leftSon;
-		node.leftSon = currentLeft.rightSon;
+		if (currentLeft.hasRightSon()) {
+			node.leftSon = currentLeft.rightSon;
+			node.leftSon.parent = node;
+		} else {
+			node.leftSon = null;
+		}
 		currentLeft.parent = node.parent;
-		if (node.parent == null)
+		if (node.parent == null) {
 			root = currentLeft;
-		else {
-			if (node == node.parent.rightSon)
+		} else {
+			if (node.isARightSon()) {
 				node.parent.rightSon = currentLeft;
-			else
+			} else {
 				node.parent.leftSon = currentLeft;
+			}
 		}
 		currentLeft.rightSon = node;
 		node.parent = currentLeft;
-		node.updateBalanceFactor();
-		currentLeft.updateBalanceFactor();
-
+		node.updateHeightAndBalance();
+		currentLeft.updateHeightAndBalance();
 	}
 
+	/**
+	 * Rotates the subtree rooted at the given node to the left.
+	 * @param node node to rotate.
+	 */
 	private void rotateLeft(AvlNode node) {
 		AvlNode currentRight = node.rightSon;
-		node.leftSon = currentRight.leftSon;
+		if (currentRight.hasLeftSon()) {
+			node.rightSon = currentRight.leftSon;
+			node.rightSon.parent = node;
+		} else {
+			node.rightSon = null;
+		}
 		currentRight.parent = node.parent;
 		if (node.parent == null) {
 			root = currentRight;
 		} else {
-			if (node == node.parent.rightSon)
+			if (node.isARightSon()) {
 				node.parent.rightSon = currentRight;
-			else
+			}
+			else {
 				node.parent.leftSon = currentRight;
+			}
 		}
 		currentRight.leftSon = node;
 		node.parent = currentRight;
-		currentRight.updateBalanceFactor();
-		node.updateBalanceFactor();
+		node.updateHeightAndBalance();
+		currentRight.updateHeightAndBalance();
 	}
 
 	/**
@@ -386,6 +460,7 @@ public class AVLTree implements Tree {
 		// in case tree is empty, add new node to root and return.
 		if (root == null) {
 			root = new AvlNode(null, newValue);
+			numOfNodes++;
 			return true;
 		}
 		// binary search operation with Operator add.
@@ -440,6 +515,9 @@ public class AVLTree implements Tree {
 	 */
 	private AvlNode getMinNode() {
 		AvlNode current = root;
+		if (current == null) {
+			return null;
+		}
 		// go left until the most left node is reached.
 		while (current.hasLeftSon()) {
 			current = current.leftSon;
@@ -453,10 +531,10 @@ public class AVLTree implements Tree {
 	 */
 	@Override
 	public Iterator<Integer> iterator() {
-		return new AVLTreeIterator();
+		return (Iterator<Integer>) new AvlTreeIterator();
 	}
 
-	private class AVLTreeIterator implements Iterator<Integer> {
+	private class AvlTreeIterator implements Iterator<Integer> {
 		/**
 		 * Holds the current node in the iteration.
 		 */
@@ -473,7 +551,7 @@ public class AVLTree implements Tree {
 		/**
 		 * Default constructor.
 		 */
-		private AVLTreeIterator() {
+		private AvlTreeIterator() {
 			currentNode = getMinNode();
 		}
 
@@ -512,6 +590,13 @@ public class AVLTree implements Tree {
 			wasLastNodeUsed = true;
 			currentNode = probedNode;
 			return currentNode.value;
+		}
+
+		@Override
+		public void forEachRemaining(Consumer<? super Integer> action) {
+			while (hasNext()) {
+				action.accept(next());
+			}
 		}
 	}
 
