@@ -7,11 +7,6 @@ import java.util.Iterator;
  */
 
 public class AVLTree implements Tree {
-
-
-
-
-
 	private static final int AVL_H0_MIN_NODES=1;
 	private static final int AVL_H1_MIN_NODES=2;
 	private static final int NOT_CONTAINED_INDICATOR =-1;
@@ -19,6 +14,53 @@ public class AVLTree implements Tree {
 	private boolean lastNodeRight;
 	private AvlNode root;
 	private int numOfNodes=0;
+
+	/**
+	 * Representing an AVL node class, as an inner class within AVL Tree.
+	 */
+	private class AvlNode {
+		/**
+		 * Parent of node.
+		 */
+		private AvlNode parent;
+		/**
+		 * Left son of node.
+		 */
+		private AvlNode leftSon;
+		/**
+		 * Right son of node.
+		 */
+		private AvlNode rightSon;
+		/**
+		 * Node's value.
+		 */
+		private int value;
+		/**
+		 * Node's balance factor.
+		 */
+		private int balanceFactor;
+
+		/**
+		 * Private constructor.
+		 * @param parent parent of node.
+		 * @param value value of node
+		 */
+		private AvlNode(AvlNode parent, int value){
+			this.parent = parent;
+			this.leftSon=null;
+			this.rightSon=null;
+			this.value=value;
+			balanceFactor=0;
+		}
+
+		/**
+		 * Updates node's balance factor.
+		 */
+		private void updateBalanceFactor() {
+			return;
+		}
+	}
+
 
 
 	/**
@@ -46,7 +88,6 @@ public class AVLTree implements Tree {
 	public AVLTree(int[] data) {
 
 	}
-
 	/**
 	 * Add a new node with the given key to the tree.
 	 *
@@ -55,20 +96,6 @@ public class AVLTree implements Tree {
 	 * otherwise.
 	 */
 	public boolean add(int newValue) {
-		if (root==null){
-			root= new AvlNode(null, newValue);
-			numOfNodes++;
-			return true;
-		}
-		if (contains(newValue)!=NOT_CONTAINED_INDICATOR)
-			return false;
-		if (lastNodeRight){lastNode.setRightSon(new AvlNode(lastNode,newValue));}
-		if (!lastNodeRight){lastNode.setLeftSon(new AvlNode(lastNode,newValue));}
-		numOfNodes++;
-		checkDisorder();
-
-
-
 		return true;
 	}
 
@@ -80,28 +107,7 @@ public class AVLTree implements Tree {
 	 * value if it was found in the tree, -1 otherwise.
 	 */
 	public int contains(int searchVal) {
-		if (root==null)
-			return NOT_CONTAINED_INDICATOR;
-		int heightCounter=0;
-		AvlNode currentNode=root;
-		while (true){
-			if (currentNode.getKey()==searchVal)
-				return heightCounter;
-			if (searchVal>currentNode.getKey()){
-				if(currentNode.getRightSon()==null){
-					lastNode = currentNode;
-					lastNodeRight =true;
-					return NOT_CONTAINED_INDICATOR;}
-				heightCounter++;
-				currentNode=currentNode.getRightSon();
-				}
-			if(currentNode.getLeftSon()==null){
-				lastNode=currentNode;
-				lastNodeRight =false;
-				return NOT_CONTAINED_INDICATOR;}
-			heightCounter++;
-			currentNode=currentNode.getLeftSon();
-		}
+		return 0;
 	}
 
 	/**
@@ -179,4 +185,55 @@ public class AVLTree implements Tree {
 	private void checkDisorder(){
 
 	}
+
+
+	/**
+	 *
+	public boolean add(int newValue) {
+		if (root==null){
+			root= new AvlNode(null, newValue);
+			numOfNodes++;
+			return true;
+		}
+		if (contains(newValue)!=NOT_CONTAINED_INDICATOR)
+			return false;
+		if (lastNodeRight){lastNode.setRightSon(new AvlNode(lastNode,newValue));}
+		if (!lastNodeRight){lastNode.setLeftSon(new AvlNode(lastNode,newValue));}
+		numOfNodes++;
+		checkDisorder();
+
+
+
+		return true;
+	}
+
+
+	public int contains(int searchVal) {
+		if (root==null)
+			return NOT_CONTAINED_INDICATOR;
+		int heightCounter=0;
+		AvlNode currentNode=root;
+		while (true){
+			if (currentNode.getKey()==searchVal)
+				return heightCounter;
+			if (searchVal>currentNode.getKey()){
+				if(currentNode.getRightSon()==null){
+					lastNode = currentNode;
+					lastNodeRight =true;
+					return NOT_CONTAINED_INDICATOR;}
+				heightCounter++;
+				currentNode=currentNode.getRightSon();
+			}
+			if (currentNode.getLeftSon() == null) {
+				lastNode=currentNode;
+				lastNodeRight =false;
+				return NOT_CONTAINED_INDICATOR;}
+			heightCounter++;
+			currentNode=currentNode.getLeftSon();
+		}
+	}
+	 *
+	 *
+	 *
+	 */
 }
