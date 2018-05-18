@@ -12,27 +12,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="AVLTree.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AVLTree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="98" column="20" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+            <state relative-caret-position="250">
+              <caret line="152" column="16" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
               <folding>
-                <element signature="e#1218#1219#0" expanded="true" />
-                <element signature="e#1233#1234#0" expanded="true" />
-                <element signature="e#2026#2027#0" expanded="true" />
-                <element signature="e#2044#2045#0" expanded="true" />
-                <element signature="e#2352#2353#0" expanded="true" />
-                <element signature="e#2367#2368#0" expanded="true" />
-                <element signature="e#2623#2624#0" expanded="true" />
-                <element signature="e#2641#2642#0" expanded="true" />
-                <element signature="e#2718#2719#0" expanded="true" />
-                <element signature="e#2733#2734#0" expanded="true" />
-                <element signature="e#2958#2959#0" expanded="true" />
-                <element signature="e#2976#2977#0" expanded="true" />
-                <element signature="e#3155#3156#0" expanded="true" />
-                <element signature="e#3173#3174#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+                <element signature="e#870#930#0" expanded="false" />
+                <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+                <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+                <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+                <element signature="e#4394#4425#0" expanded="false" />
+                <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+                <element signature="e#11967#11968#0" expanded="true" />
+                <element signature="e#12002#12003#0" expanded="true" />
+                <element signature="e#12394#12395#0" expanded="true" />
+                <element signature="e#12429#12430#0" expanded="true" />
+                <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+                <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+                <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/Tree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/helper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+              <folding>
+                <element signature="e#409#410#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TESTS.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/TESTS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,6 +127,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>add</find>
+      <find>rotat</find>
+      <find>void rotat</find>
+      <find>parent.l</find>
+      <find>boo</find>
+      <find>boolean add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,7 +146,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/oop/ex4/data_structures/AvlNode.java" />
+        <option value="$PROJECT_DIR$/src/oop/ex4/data_structures/helper.java" />
         <option value="$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java" />
+        <option value="$PROJECT_DIR$/src/oop/ex4/data_structures/TESTS.java" />
       </list>
     </option>
   </component>
@@ -232,7 +317,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -246,7 +330,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25405404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20324324" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -254,18 +338,39 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25405404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -282,20 +387,65 @@
         <state relative-caret-position="2425">
           <caret line="97" column="35" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2718#2719#0" expanded="true" />
-            <element signature="e#2733#2734#0" expanded="true" />
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -313,20 +463,65 @@
         <state relative-caret-position="275">
           <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding>
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2718#2719#0" expanded="true" />
-            <element signature="e#2733#2734#0" expanded="true" />
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -350,24 +545,311 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="98" column="20" lean-forward="false" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+        <state relative-caret-position="496">
+          <caret line="371" column="0" lean-forward="true" selection-start-line="371" selection-start-column="0" selection-end-line="371" selection-end-column="0" />
           <folding>
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1233#1234#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-            <element signature="e#2718#2719#0" expanded="true" />
-            <element signature="e#2733#2734#0" expanded="true" />
-            <element signature="e#2958#2959#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/Node.java" />
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2425">
+          <caret line="97" column="35" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3708">
+          <caret line="143" column="17" lean-forward="false" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/Node.java" />
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/Node.java" />
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AvlNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="152" column="16" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#NOT_CONTAINED_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#CONTAINS_INDICATOR#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#ROOT_HEIGHT#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#SUCCESS_FLAG#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#870#930#0" expanded="false" />
+            <element signature="docComment;field#root#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#numOfNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#Operator#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#parent#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#leftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#rightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#value#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;field#balanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#AvlNode#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isLeaf#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasLeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#hasRightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isALeftSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#isARightSon#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#updateBalanceFactor#0;class#AvlNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#1;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="method#AVLTree#2;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#binarySearchOperation#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#4394#4425#0" expanded="false" />
+            <element signature="docComment;method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#successor#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#swap#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#deleteNode#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#checkDisorder#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateRight#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#rotateLeft#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#add#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#contains#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#delete#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#size#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#iterator#0;class#AVLTree#0" expanded="false" />
+            <element signature="e#11967#11968#0" expanded="true" />
+            <element signature="e#12002#12003#0" expanded="true" />
+            <element signature="e#12394#12395#0" expanded="true" />
+            <element signature="e#12429#12430#0" expanded="true" />
+            <element signature="docComment;method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMinNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="docComment;method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+            <element signature="method#findMaxNodes#0;class#AVLTree#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/oop/ex4/data_structures/TESTS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
