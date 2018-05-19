@@ -266,15 +266,21 @@ public class AvlTree implements Tree {
 		} else if (current.parent == null) {
 			return null;
 		} else {
-			AvlNode iterNode = current.parent;
-			while (iterNode.isARightSon()) {
-				// the successor is an ancestor, iterate ancestors.
-				iterNode = iterNode.parent;
-			}
-			if (iterNode.parent == null) {
+			if (current.isALeftSon()) {
+				return current.parent;
+			} else if (current.isARightSon()) {
+				AvlNode iterNode = current.parent;
+				while (iterNode.isARightSon()) {
+					// the successor is an ancestor, iterate ancestors.
+					iterNode = iterNode.parent;
+				}
+				if (iterNode.parent == null) {
+					return null;
+				}
+				return iterNode.parent;
+			} else {
 				return null;
 			}
-			return iterNode.parent;
 		}
 	}
 
@@ -319,7 +325,11 @@ public class AvlTree implements Tree {
 	 */
 	private void swap(AvlNode current, AvlNode replacer) {
 		// TODO: maybe exception here?
-		// TODO: NOT SWAPPING CORRECTLY!!!!
+		/**
+		 * 1. if current parent is null, it means current parent is the root
+		 * 2. else -
+		 * 		a. if a current is a left son
+		 */
 		if (current == null) {
 			return;
 		}
@@ -344,7 +354,7 @@ public class AvlTree implements Tree {
 	 */
 	private AvlNode deleteNode(AvlNode toDelete) {
 		AvlNode newCurrent = null;
-		// if is a leaf.
+		// if is a leaf:
 		if (toDelete.isLeaf()) {
 			// do leaf deletion.
 			swap(toDelete, null);
@@ -354,20 +364,27 @@ public class AvlTree implements Tree {
 			if (toDelete.hasLeftSon() && !toDelete.hasRightSon()) {
 				newCurrent = toDelete.leftSon;
 				swap(toDelete, toDelete.leftSon);
-
 				// else, if has only a right son
 			} else if (toDelete.hasLeftSon() && !toDelete.hasRightSon()) {
 				newCurrent = toDelete.rightSon;
 				swap(toDelete, toDelete.rightSon);
 				// else, has both right and left. find successor and switch.
 			} else {
-				// get successor.
+				// get predecessor, which is ultimately
 //				AvlNode successor = successor(toDelete);
+				//TODO: change this code to successor if needed.(!!)
 				AvlNode predecessor = predecessor(toDelete);
+				if (predecessor != null) {
+					if (predecessor != toDelete.leftSon) {
+						predecessor.parent.rightSon = predecessor.leftSon;
+						predecessor.leftSon = toDelete.leftSon;
+						predecessor.leftSon.parent = predecessor;
+					}
+					predecessor.rightSon = toDelete.rightSon;
+					predecessor.rightSon.parent = predecessor;
+				}
 				swap(toDelete, predecessor);
-				predecessor.rightSon = toDelete.rightSon;
-				predecessor.rightSon.parent = predecessor;
-				newCurrent = predecessor;
+				newCurrent = null;
 			}
 		}
 		return newCurrent;
@@ -548,11 +565,14 @@ public class AvlTree implements Tree {
 		 */
 		private boolean wasLastNodeUsed = true;
 
+		private boolean firstRun = true;
+
 		/**
 		 * Default constructor.
 		 */
 		private AvlTreeIterator() {
-			currentNode = getMinNode();
+			currentNode = null;
+			probedNode = null;
 		}
 
 		/**
@@ -564,8 +584,15 @@ public class AvlTree implements Tree {
 			if (!wasLastNodeUsed) {
 				return true;
 			}
+
 			// get the node's successor.
-			AvlNode nextNode = successor(currentNode);
+			AvlNode nextNode;
+			if (firstRun) {
+				nextNode = getMinNode();
+				firstRun = false;
+			} else {
+				nextNode = successor(currentNode);
+			}
 			if (nextNode == null) {
 				return false;
 			}

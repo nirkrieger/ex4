@@ -1,5 +1,7 @@
 package oop.ex4.data_structures;
 
+import java.util.Iterator;
+
 public class TESTS {
 
 	public static void main(String args[]){
@@ -9,9 +11,12 @@ public class TESTS {
 		System.out.println("Contains 10: " + myAvl.contains(10));
 		System.out.println("Contains 16: " + myAvl.contains(16));
 
+		myAvl.delete(4);
 		myAvl.delete(1);
 		myAvl.delete(6);
-		myAvl.delete(4);
+		for (Iterator<Integer> a = myAvl.iterator(); a.hasNext(); ) {
+			System.out.println(a.next());
+		}
 		(new AvlTree()).delete(10);
 
 
