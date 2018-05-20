@@ -55,7 +55,7 @@ public class AvlTree implements Tree {
 	 * Representing an AVL node class, as an inner class within AVL Tree.
 	 */
 	private class AvlNode {
-		private static final int NO_SON_BALANCE_FACTOR = -1;
+		private static final int NO_SON_HEIGHT = -1;
 		/**
 		 * Parent of node.
 		 */
@@ -134,13 +134,13 @@ public class AvlTree implements Tree {
 		 * Updates node's balance factor.
 		 */
 		private void updateHeightAndBalance() {
-			int checkLeft = NO_SON_BALANCE_FACTOR, checkRight = NO_SON_BALANCE_FACTOR;
+			int heightLeft = NO_SON_HEIGHT, heightRight = NO_SON_HEIGHT;
 			if (hasLeftSon())
-				checkLeft = leftSon.height;
+				heightLeft = leftSon.height;
 			if (hasRightSon())
-				checkRight = rightSon.height;
-			height = (Math.max(checkLeft, checkRight) + 1);
-			balanceFactor = checkLeft - checkRight;
+				heightRight = rightSon.height;
+			height = (Math.max(heightLeft, heightRight) + 1);
+			balanceFactor = heightLeft - heightRight;
 		}
 		@Override
 		public String toString() {
@@ -266,17 +266,19 @@ public class AvlTree implements Tree {
 		} else if (current.parent == null) {
 			return null;
 		} else {
-			AvlNode iterNode = current.parent;
-			while (iterNode.isARightSon()) {
+			while (current.isARightSon()) {
 				// the successor is an ancestor, iterate ancestors.
-				iterNode = iterNode.parent;
+				current = current.parent;
 			}
-			if (iterNode.parent == null) {
+			if (current.parent == null) {
 				return null;
 			}
-			return iterNode.parent;
+			return current.parent;
 		}
 	}
+
+
+
 
 	/**
 	 * Returns the predecessor of the current node.
@@ -347,7 +349,7 @@ public class AvlTree implements Tree {
 		// if is a leaf.
 		if (toDelete.isLeaf()) {
 			// do leaf deletion.
-			swap(toDelete, null);
+			swap(toDelete, newCurrent);
 			// else - has one or more children.
 		} else {
 			// if has only a left son
@@ -356,7 +358,7 @@ public class AvlTree implements Tree {
 				swap(toDelete, toDelete.leftSon);
 
 				// else, if has only a right son
-			} else if (toDelete.hasLeftSon() && !toDelete.hasRightSon()) {
+			} else if (!toDelete.hasLeftSon() && toDelete.hasRightSon()) {
 				newCurrent = toDelete.rightSon;
 				swap(toDelete, toDelete.rightSon);
 				// else, has both right and left. find successor and switch.
@@ -364,9 +366,18 @@ public class AvlTree implements Tree {
 				// get successor.
 //				AvlNode successor = successor(toDelete);
 				AvlNode predecessor = predecessor(toDelete);
+				AvlNode predecessorOriginalParent=predecessor.parent;
 				swap(toDelete, predecessor);
 				predecessor.rightSon = toDelete.rightSon;
 				predecessor.rightSon.parent = predecessor;
+				if (toDelete.leftSon!=predecessor){
+					predecessor.leftSon=toDelete.leftSon; //TODO ?
+					predecessor.leftSon.parent=predecessor;//TODO?
+					predecessorOriginalParent.rightSon=null;
+					predecessorOriginalParent.updateHeightAndBalance();
+					//TODO?
+				}
+
 				newCurrent = predecessor;
 			}
 		}
@@ -531,74 +542,78 @@ public class AvlTree implements Tree {
 	 */
 	@Override
 	public Iterator<Integer> iterator() {
-		return (Iterator<Integer>) new AvlTreeIterator();
-	}
+		class AvlTreeIterator implements Iterator<Integer> {
+			/**
+			 * Holds the current node in the iteration.
+			 */
+			private AvlNode currentNode;
+			/**
+			 * Holds the next node.
+			 */
+			private AvlNode probedNode;
+			/**
+			 * Indicates whether the probed node was used.
+			 */
+			private boolean wasLastNodeUsed;
 
-	private class AvlTreeIterator implements Iterator<Integer> {
-		/**
-		 * Holds the current node in the iteration.
-		 */
-		private AvlNode currentNode;
-		/**
-		 * Holds the next node.
-		 */
-		private AvlNode probedNode;
-		/**
-		 * Indicates whether the probed node was used.
-		 */
-		private boolean wasLastNodeUsed = true;
+			/**
+			 * Default constructor.
+			 */
+			private AvlTreeIterator() {
+				currentNode = getMinNode();
+				probedNode=currentNode;
+				if (currentNode==null)
+					wasLastNodeUsed=true;
+				else wasLastNodeUsed=false;
+			}
 
-		/**
-		 * Default constructor.
-		 */
-		private AvlTreeIterator() {
-			currentNode = getMinNode();
-		}
-
-		/**
-		 * @return Returns true if current node has a son.
-		 */
-		@Override
-		public boolean hasNext() {
-			// was last node used?
-			if (!wasLastNodeUsed) {
+			/**
+			 * @return Returns true if current node has a son.
+			 */
+			@Override
+			public boolean hasNext() {
+				// was last node used?
+				if (!wasLastNodeUsed) {
+					return true;
+				}
+				// get the node's successor.
+				AvlNode nextNode = successor(currentNode);
+				if (nextNode == null) {
+					return false;
+				}
+				// next node is available.
+				probedNode = nextNode;
+				wasLastNodeUsed = false;
 				return true;
+
+
 			}
-			// get the node's successor.
-			AvlNode nextNode = successor(currentNode);
-			if (nextNode == null) {
-				return false;
+
+			/**
+			 * @return the next integer in the tree.
+			 */
+			@Override
+			public Integer next() {//throws NoSuchElementException{
+				if (!hasNext())
+					// no successor is present.
+					// TODO: Check if correct exception.
+					throw new NoSuchElementException();
+				//
+				wasLastNodeUsed = true;
+				currentNode = probedNode;
+				return currentNode.value;
 			}
-			// next node is available.
-			probedNode = nextNode;
-			wasLastNodeUsed = false;
-			return true;
+
 
 
 		}
-
-		/**
-		 * @return the next integer in the tree.
-		 */
-		@Override
-		public Integer next() throws NoSuchElementException{
-			if (!hasNext())
-				// no successor is present.
-				// TODO: Check if correct exception.
-				throw new NoSuchElementException();
-			//
-			wasLastNodeUsed = true;
-			currentNode = probedNode;
-			return currentNode.value;
-		}
-
-		@Override
-		public void forEachRemaining(Consumer<? super Integer> action) {
-			while (hasNext()) {
-				action.accept(next());
-			}
-		}
+		return new AvlTreeIterator();
 	}
+
+
+
+
+
 
 	/**
 	 * Calculates the minimum number of nodes in an AVL tree of height h.
@@ -635,8 +650,7 @@ public class AvlTree implements Tree {
 	 * @return the maximum number of nodes in an AVL tree of the given height.
 	 */
 	public static int findMaxNodes(int h) {
-
-		return (int) Math.pow(2, h + 1) + 1;
+		return (int) Math.pow(2, h + 1) - 1;
 	}
 
 }
