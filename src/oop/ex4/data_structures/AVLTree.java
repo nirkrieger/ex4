@@ -382,9 +382,18 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 				swap(toDelete, successor);
 				successor.leftSon = toDelete.leftSon;
 				successor.leftSon.parent = successor;
+				//TODO CHECK COVER ALL SITT
 				if (toDelete.rightSon!=successor){
 					if (successor.rightSon!=null){
-						successorOriginalParent.leftSon=successor.rightSon;}//TODO !!!!!
+						if(successor.isALeftSon()) {
+							successorOriginalParent.leftSon = successor.rightSon;
+							successorOriginalParent.leftSon.parent = successorOriginalParent;//TODO !!!!!
+						}
+						else {
+							successorOriginalParent.rightSon=successor.rightSon;//TODO !!!!!
+							successorOriginalParent.rightSon.parent=successorOriginalParent;
+					}
+					}
 					else
 						successorOriginalParent.leftSon=null;
 					successor.rightSon=toDelete.rightSon; //TODO ?
