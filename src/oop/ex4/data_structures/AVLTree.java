@@ -1,5 +1,6 @@
 package oop.ex4.data_structures;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
 import java.util.function.Consumer;
@@ -8,7 +9,8 @@ import java.util.function.Consumer;
  * An implementation of the AVL tree data structure.
  */
 
-public class AvlTree implements Tree {
+//TODO DELETE WITH SUCCESSOR
+public class AvlTree implements Tree,Iterable<Integer>  {
 	private static final int VIOLATION_LEFT = 2;
 	private static final int VIOLATION_RIGHT_LEFT = 1;
 	private static final int VIOLATION_RIGHT = -2;
@@ -164,13 +166,15 @@ public class AvlTree implements Tree {
 	 *
 	 * @param tree The AVL tree to be copied.
 	 */
+	//TODO change name myIter?
 	public AvlTree(AvlTree tree) {
-		AvlTree copyTree = new AvlTree();
+//		AvlTree copyTree = new AvlTree();
+//		this.root=copyTree.root;
 		Iterator myIter = tree.iterator();
 		while (myIter.hasNext()) {
-			copyTree.add((int) myIter.next());
+			add((int) myIter.next());
 		}
-		this.root = copyTree.root;
+
 	}
 
 	/**
@@ -196,6 +200,7 @@ public class AvlTree implements Tree {
 	 * @return return value according to requested operation.
 	 */
 	private int binarySearchOperation(int value, int height, AvlNode currentNode, Operator operation) {
+		//TODO why give height? if for contain operator- can return currentNode.height-root.height
 		// initialize the return value.
 		int retValue = SUCCESS_FLAG;
 		if (currentNode == null) {
@@ -211,6 +216,7 @@ public class AvlTree implements Tree {
 			} else if (operation == Operator.DELETE) {
 				// delete the node in case of deleting.
 				currentNode = deleteNode(currentNode);
+				//TODO ?
 			} else if (operation == Operator.CONTAINS) {
 				// node was found, return height.
 				return height;
@@ -277,9 +283,6 @@ public class AvlTree implements Tree {
 		}
 	}
 
-
-
-
 	/**
 	 * Returns the predecessor of the current node.
 	 *
@@ -343,6 +346,7 @@ public class AvlTree implements Tree {
 	 * Delete a given node from tree and fix tree.
 	 *
 	 * @param toDelete
+	 * @return The node that will takes the given node to delete, if there's such, otherwise return Null
 	 */
 	private AvlNode deleteNode(AvlNode toDelete) {
 		AvlNode newCurrent = null;
@@ -364,26 +368,28 @@ public class AvlTree implements Tree {
 				// else, has both right and left. find successor and switch.
 			} else {
 				// get successor.
-//				AvlNode successor = successor(toDelete);
-				AvlNode predecessor = predecessor(toDelete);
-				AvlNode predecessorOriginalParent=predecessor.parent;
-				swap(toDelete, predecessor);
-				predecessor.rightSon = toDelete.rightSon;
-				predecessor.rightSon.parent = predecessor;
-				if (toDelete.leftSon!=predecessor){
-					predecessor.leftSon=toDelete.leftSon; //TODO ?
-					predecessor.leftSon.parent=predecessor;//TODO?
-					predecessorOriginalParent.rightSon=null;
-					predecessorOriginalParent.updateHeightAndBalance();
+//				AvlNode predecessor = predecessor(toDelete);//TODO PRE->SEC
+				AvlNode successor = successor(toDelete);
+//				AvlNode predecessorOriginalParent=successor.parent;
+				AvlNode successorOriginalParent=successor.parent;//TODO PRE->SEC
+				swap(toDelete, successor);
+				successor.leftSon = toDelete.leftSon;
+				successor.leftSon.parent = successor;
+				if (toDelete.rightSon!=successor){
+					successor.rightSon=toDelete.rightSon; //TODO ?
+					successor.rightSon.parent=successor;//TODO?
+					successorOriginalParent.leftSon=null;
+					successorOriginalParent.updateHeightAndBalance();
 					//TODO?
 				}
 
-				newCurrent = predecessor;
+				newCurrent = successor;
 			}
 		}
 		return newCurrent;
 	}
 
+	//TODO rename method
 	private void checkDisorder(AvlNode node) {
 		if (node == null) {
 			return;
@@ -609,10 +615,6 @@ public class AvlTree implements Tree {
 		}
 		return new AvlTreeIterator();
 	}
-
-
-
-
 
 
 	/**
