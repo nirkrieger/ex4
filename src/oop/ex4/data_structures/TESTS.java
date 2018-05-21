@@ -19,7 +19,7 @@ public class TESTS {
 
 	public static void main(String args[]){
 		TESTS test= new TESTS();
-		AvlTree myAvl=new AvlTree(new int[]{1,2,3,4,5,6,7,8,9,10});
+		AvlTree oldAvl=new AvlTree(new int[]{1,2,3,4,5,6,7,8,9,10});
 		AvlTree myAvl2=new AvlTree(new int[]{16,8,30,6,9,20,40,7,18,32});
 		SortedSet<Integer> checker = new TreeSet<Integer>();
 		checker.addAll(Arrays.asList(new Integer[]{16, 8, 30, 6, 9, 20, 40, 7, 18, 32}));
@@ -35,6 +35,16 @@ public class TESTS {
 //		myAvl2.delete(16);
 		System.out.println("AVL Contains 16: " + myAvl2.contains(16));
 		System.out.println("_______begin__test_#1_______");
+		Random rand=new Random();
+		int[] lst=new int[30001];
+		System.out.println("^^^^^^");
+		System.out.print("{");
+		for (int i = 0; i <= 30000; i++){
+			lst[i]=rand.nextInt(30000);
+			System.out.print(lst[i]+",");
+		}
+		System.out.print("}");
+		System.out.println("^^^^^^");
 
 //		Integer[] lst=new Integer[]{16, 8, 30, 6, 9, 20, 40, 7, 18, 32};
 //		for(int q:lst) {
@@ -58,28 +68,34 @@ public class TESTS {
 
 		myAvl2.delete(30);
 
+
+//		myAvl2.delete(28);
+//		myAvl2.delete(32);
+		myAvl2.delete(41);
+		myAvl2.delete(7);
+		myAvl2.delete(6);
+//		myAvl2.delete(9);
+//		myAvl2.delete(29);
+//		myAvl2.delete(40);
+
+
+		myAvl2.add(33);
 		System.out.println("failed with" + 999);
 
 
 
 
 		System.out.println("end");
-
-
-
-
-
-
 		System.out.println("___________________________");
 
-		myAvl.delete(4);
-		myAvl.delete(10);
-		myAvl.delete(9);
+		oldAvl.delete(4);
+		oldAvl.delete(10);
+		oldAvl.delete(9);
 
 		System.out.println("___________________________");
-		myAvl.add(4);
-		myAvl.add(15);
-		myAvl.add(700);
+		oldAvl.add(4);
+		oldAvl.add(15);
+		oldAvl.add(700);
 		System.out.println("___________________________");
 		int size=30000;
 		for (int i = 0; i <= size / 2; i++) {
@@ -90,9 +106,9 @@ public class TESTS {
 			}}
 
 		System.out.println("___________________________");
-		System.out.println(myAvl.findMinNodes(3)==7);
-		System.out.println(myAvl.findMinNodes(5)==20);
-		System.out.println(myAvl.findMinNodes(8)==88);
+		System.out.println(oldAvl.findMinNodes(3)==7);
+		System.out.println(oldAvl.findMinNodes(5)==20);
+		System.out.println(oldAvl.findMinNodes(8)==88);
 
 	}
 }

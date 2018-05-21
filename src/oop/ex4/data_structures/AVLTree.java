@@ -1,9 +1,9 @@
 package oop.ex4.data_structures;
 
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Iterator;
-import java.util.function.Consumer;
+//import java.util.function.Consumer;
 
 /**
  * An implementation of the AVL tree data structure.
@@ -170,10 +170,15 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	public AvlTree(AvlTree tree) {
 //		AvlTree copyTree = new AvlTree();
 //		this.root=copyTree.root;
+		if (tree==null){
+			root=null;
+		}
+		else{
 		Iterator myIter = tree.iterator();
 		while (myIter.hasNext()) {
+
 			add((int) myIter.next());
-		}
+		}}
 
 	}
 
@@ -185,8 +190,10 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	public AvlTree(int[] data) {
 		root = null;
 		// iterate array and add to tree.
-		for (int value : data) {
-			add(value);
+		if (data!=null) {
+			for (int value : data) {
+				add(value);
+			}
 		}
 	}
 
@@ -359,12 +366,12 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 			// if has only a left son
 			if (toDelete.hasLeftSon() && !toDelete.hasRightSon()) {
 				newCurrent = toDelete.leftSon;
-				swap(toDelete, toDelete.leftSon);
+				swap(toDelete, newCurrent);
 
 				// else, if has only a right son
 			} else if (!toDelete.hasLeftSon() && toDelete.hasRightSon()) {
 				newCurrent = toDelete.rightSon;
-				swap(toDelete, toDelete.rightSon);
+				swap(toDelete, newCurrent);
 				// else, has both right and left. find successor and switch.
 			} else {
 				// get successor.
@@ -376,9 +383,14 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 				successor.leftSon = toDelete.leftSon;
 				successor.leftSon.parent = successor;
 				if (toDelete.rightSon!=successor){
+					if (successor.rightSon!=null){
+						successorOriginalParent.leftSon=successor.rightSon;}//TODO !!!!!
+					else
+						successorOriginalParent.leftSon=null;
 					successor.rightSon=toDelete.rightSon; //TODO ?
 					successor.rightSon.parent=successor;//TODO?
-					successorOriginalParent.leftSon=null;
+
+
 					successorOriginalParent.updateHeightAndBalance();
 					//TODO?
 				}
@@ -474,6 +486,7 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 * otherwise.
 	 */
 	public boolean add(int newValue) {
+
 		// in case tree is empty, add new node to root and return.
 		if (root == null) {
 			root = new AvlNode(null, newValue);

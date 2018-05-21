@@ -4,14 +4,14 @@ Q&A:
 
 5.2
 1. O(nlogn)
-2. O(nlogn)
+2. O(nlogn) //n??
 
 5.3
 1. O(nlogn)
-2. O(nlogn)
+2. O(nlogn) ///n???
 
 5.4
 1. O(h)
-2. yes
+2. yes///log h??
 
 
