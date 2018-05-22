@@ -18,94 +18,18 @@ public class TESTS {
 	}
 
 	public static void main(String args[]){
-		TESTS test= new TESTS();
+//		TESTS test= new TESTS();
 		AvlTree oldAvl=new AvlTree(new int[]{1,2,3,4,5,6,7,8,9,10});
 		AvlTree myAvl2=new AvlTree(new int[]{16,8,30,6,9,20,40,7,18,32});
+		AvlTree testT= new AvlTree();
 		SortedSet<Integer> checker = new TreeSet<Integer>();
 		checker.addAll(Arrays.asList(new Integer[]{16, 8, 30, 6, 9, 20, 40, 7, 18, 32}));
 
-		System.out.println("check1:"+checker.contains(30));
-		System.out.println("check2:"+checker.contains(100));
-		System.out.println("check3:"+checker.contains(16));
-		checker.remove(16);
-		System.out.println("check4:"+checker.contains(16));
-		System.out.println("AVL Contains 6: " + myAvl2.contains(30));
-		System.out.println("AVL Contains 10: " + myAvl2.contains(10));
-		System.out.println("AVL Contains 16: " + myAvl2.contains(16));
-//		myAvl2.delete(16);
-		System.out.println("AVL Contains 16: " + myAvl2.contains(16));
-		System.out.println("_______begin__test_#1_______");
-		Random rand=new Random();
-		int[] lst=new int[30001];
-		System.out.println("^^^^^^");
-		System.out.print("{");
-		for (int i = 0; i <= 30000; i++){
-			lst[i]=rand.nextInt(30000);
-			System.out.print(lst[i]+",");
+		for(int i=0;i<9;i++){
+			testT.add(i);
 		}
-		System.out.print("}");
-		System.out.println("^^^^^^");
-
-//		Integer[] lst=new Integer[]{16, 8, 30, 6, 9, 20, 40, 7, 18, 32};
-//		for(int q:lst) {
-//			System.out.println("cur="+q);
-//			myAvl2.delete(q);
-//////			checker.remove(q);
-//////			if (!checkEq(myAvl2, checker))
-////			System.out.println("failed with" + q);
-//////			checker.add(q);
-//			myAvl2.add(q);
-//		}
-
-		myAvl2.delete(16);
-		int h=myAvl2.contains(40);
-		myAvl2.add(37);
-		myAvl2.add(41);
-		myAvl2.delete(18);
-
-		myAvl2.add(28);
-		myAvl2.add(29);
-
-		myAvl2.delete(30);
-
-
-//		myAvl2.delete(28);
-//		myAvl2.delete(32);
-		myAvl2.delete(41);
-		myAvl2.delete(7);
-		myAvl2.delete(6);
-//		myAvl2.delete(9);
-//		myAvl2.delete(29);
-//		myAvl2.delete(40);
-
-
-		myAvl2.add(33);
-		System.out.println("failed with" + 999);
-
-
-
-
-		System.out.println("end");
-		System.out.println("___________________________");
-
-		oldAvl.delete(4);
-		oldAvl.delete(10);
-		oldAvl.delete(9);
-
-		System.out.println("___________________________");
-		oldAvl.add(4);
-		oldAvl.add(15);
-		oldAvl.add(700);
-		System.out.println("___________________________");
-		int size=30000;
-		for (int i = 0; i <= size / 2; i++) {
-			int x = (i * 1153) % size;
-			if (x==16214){
-				System.out.println("this is i:"+i);
-				break;
-			}}
-
-		System.out.println("___________________________");
+		testT.delete(2);
+		testT.delete(0);
 		System.out.println(oldAvl.findMinNodes(3)==7);
 		System.out.println(oldAvl.findMinNodes(5)==20);
 		System.out.println(oldAvl.findMinNodes(8)==88);

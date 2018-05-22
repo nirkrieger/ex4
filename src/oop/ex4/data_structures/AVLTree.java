@@ -10,13 +10,18 @@ import java.util.Iterator;
  */
 
 //TODO DELETE WITH SUCCESSOR
-public class AvlTree implements Tree,Iterable<Integer>  {
+public class AvlTree implements Tree,Iterable<Integer> {
 	private static final int VIOLATION_LEFT = 2;
 	private static final int VIOLATION_RIGHT_LEFT = 1;
 	private static final int VIOLATION_RIGHT = -2;
 	private static final int VIOLATION_LEFT_RIGHT = -1;
 	private static final int AVL_H0_MIN_NODES = 1;
 	private static final int AVL_H1_MIN_NODES = 2;
+	private static final int DELETE_SUCCES = 1;
+	private static final int NO_SUCCESS = 0;
+	private static final int SUCCESS = 1;
+
+
 	/**
 	 * Represents a return value when value not found.
 	 */
@@ -33,6 +38,9 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 * Indicates success during adding or deleting.
 	 */
 	private static final int SUCCESS_FLAG = 0;
+
+
+
 	//private AvlNode lastNode;//search for contained last node;
 	//private boolean lastNodeRight;
 	/**
@@ -144,6 +152,7 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 			height = (Math.max(heightLeft, heightRight) + 1);
 			balanceFactor = heightLeft - heightRight;
 		}
+
 		@Override
 		public String toString() {
 			return "AvlNode{" +
@@ -170,15 +179,15 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	public AvlTree(AvlTree tree) {
 //		AvlTree copyTree = new AvlTree();
 //		this.root=copyTree.root;
-		if (tree==null){
-			root=null;
-		}
-		else{
-		Iterator myIter = tree.iterator();
-		while (myIter.hasNext()) {
+		if (tree == null) {
+			root = null;
+		} else {
+			Iterator myIter = tree.iterator();
+			while (myIter.hasNext()) {
 
-			add((int) myIter.next());
-		}}
+				add((int) myIter.next());
+			}
+		}
 
 	}
 
@@ -190,7 +199,7 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	public AvlTree(int[] data) {
 		root = null;
 		// iterate array and add to tree.
-		if (data!=null) {
+		if (data != null) {
 			for (int value : data) {
 				add(value);
 			}
@@ -206,9 +215,11 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 * @param operation   operation to be performed.
 	 * @return return value according to requested operation.
 	 */
+	/**
 	private int binarySearchOperation(int value, int height, AvlNode currentNode, Operator operation) {
 		//TODO why give height? if for contain operator- can return currentNode.height-root.height
 		// initialize the return value.
+
 		int retValue = SUCCESS_FLAG;
 		if (currentNode == null) {
 			// if node is null, the given value was not found. return not found.
@@ -257,6 +268,58 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 		}
 		return retValue;
 	}
+	 */
+
+	private int probe(int valToSearch, Operator operation) {
+		int depth = 0;
+		AvlNode currentNode = root;
+		if (root==null){
+			return NOT_CONTAINED_INDICATOR;
+		}
+		while(true) {
+			if (valToSearch == currentNode.value) {
+				if (operation == Operator.ADD) {
+					// given value already exists, do not add and return contains constant.
+					return CONTAINS_INDICATOR;
+				} else if (operation == Operator.DELETE) {
+					// delete the node in case of deleting.
+					deleteNode(currentNode);
+					return DELETE_SUCCES;
+					//TODO ?
+				} else if (operation == Operator.CONTAINS) {
+					// node was found, return height.
+					return depth;
+				}
+
+			} else if (valToSearch > currentNode.value) {
+				if (currentNode.hasRightSon()) {
+					depth++;
+					currentNode = currentNode.rightSon;
+				} else {
+					if(operation==Operator.ADD){
+						currentNode.rightSon=new AvlNode(currentNode,valToSearch);
+						checkDisorder(currentNode);
+						return SUCCESS;
+					}else{return NOT_CONTAINED_INDICATOR;}
+				}
+
+			} else if (valToSearch < currentNode.value) {
+				if (currentNode.hasLeftSon()) {
+					depth++;
+					currentNode = currentNode.leftSon;
+				} else {
+					if(operation==Operator.ADD){
+						currentNode.leftSon=new AvlNode(currentNode,valToSearch);
+						checkDisorder(currentNode);
+						return SUCCESS;
+					}else{return NOT_CONTAINED_INDICATOR;}
+				}
+
+			}
+		}
+	}
+
+
 
 	/**
 	 * Returns the successor of the current node.
@@ -289,6 +352,8 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 			return current.parent;
 		}
 	}
+
+
 
 	/**
 	 * Returns the predecessor of the current node.
@@ -355,78 +420,125 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 * @param toDelete
 	 * @return The node that will takes the given node to delete, if there's such, otherwise return Null
 	 */
-	private AvlNode deleteNode(AvlNode toDelete) {
+	private void deleteNode(AvlNode toDelete) {
 		AvlNode newCurrent = null;
 		// if is a leaf.
 		if (toDelete.isLeaf()) {
 			// do leaf deletion.
 			swap(toDelete, newCurrent);
+			AvlNode OriginalParent = toDelete.parent;
+			checkDisorder(OriginalParent);
 			// else - has one or more children.
 		} else {
 			// if has only a left son
 			if (toDelete.hasLeftSon() && !toDelete.hasRightSon()) {
+				AvlNode OriginalParent = toDelete.parent;
 				newCurrent = toDelete.leftSon;
 				swap(toDelete, newCurrent);
+				checkDisorder(OriginalParent);
 
 				// else, if has only a right son
 			} else if (!toDelete.hasLeftSon() && toDelete.hasRightSon()) {
+				AvlNode OriginalParent = toDelete.parent;
 				newCurrent = toDelete.rightSon;
 				swap(toDelete, newCurrent);
+				checkDisorder(OriginalParent);
+
 				// else, has both right and left. find successor and switch.
 			} else {
+
+
 				// get successor.
 //				AvlNode predecessor = predecessor(toDelete);//TODO PRE->SEC
 				AvlNode successor = successor(toDelete);
-//				AvlNode predecessorOriginalParent=successor.parent;
-				AvlNode successorOriginalParent=successor.parent;//TODO PRE->SEC
-				swap(toDelete, successor);
-				successor.leftSon = toDelete.leftSon;
-				successor.leftSon.parent = successor;
-				//TODO CHECK COVER ALL SITT
-				if (toDelete.rightSon!=successor){
-					if (successor.rightSon!=null){
-						if(successor.isALeftSon()) {
-							successorOriginalParent.leftSon = successor.rightSon;
-							successorOriginalParent.leftSon.parent = successorOriginalParent;//TODO !!!!!
-						}
-						else {
-							successorOriginalParent.rightSon=successor.rightSon;//TODO !!!!!
-							successorOriginalParent.rightSon.parent=successorOriginalParent;
-					}
-					}
-					else
-						successorOriginalParent.leftSon=null;
-					successor.rightSon=toDelete.rightSon; //TODO ?
-					successor.rightSon.parent=successor;//TODO?
-
-
-					successorOriginalParent.updateHeightAndBalance();
-					//TODO?
-				}
-
-				newCurrent = successor;
+				AvlNode OriginalParent = successor.parent;
+				toDelete.value=successor.value;
+				deleteNode(successor);
+				checkDisorder(OriginalParent);
+//				if(successor.hasRightSon()){
+//
+//
+//				}
+//				//special case
+//				if (successor==toDelete.rightSon){
+//					toDelete.value=successor.value;
+//					deleteNode(successor);
+//					if (successor.hasRightSon()){
+//						return successor.rightSon;
+//					}
+//					return successor;
+//				}
+//				//no up
+//				if (successor.hasRightSon()){
+//					toDelete.value=successor.value;
+//					deleteNode(successor);
+//					return successor.parent.leftSon;
+//				}
+//
+//
+////				AvlNode predecessorOriginalParent=successor.parent;
+//				if (successor.hasRightSon()){
+//					AvlNode successorSon=successor.rightSon;
+//				}
+//
+//
+//
+//				AvlNode successorOriginalParent=successor.parent;//TODO PRE->SEC
+//				swap(toDelete, successor);
+//				successor.leftSon = toDelete.leftSon;
+//				successor.leftSon.parent = successor;
+//				//todo problem probably here! check all cases
+////				if (toDelete.rightSon!=successor){
+////					if (successor.rightSon!=null){
+////						if(successor.isALeftSon()) {
+////							successorOriginalParent.leftSon = successor.rightSon;
+////							successorOriginalParent.leftSon.parent = successorOriginalParent;//TODO !!!!!
+////						}
+////						else if(successor.isARightSon()) {
+////							successorOriginalParent.rightSon=successor.rightSon;//TODO !!!!!
+////							successorOriginalParent.rightSon.parent=successorOriginalParent;
+////					}
+////					}
+////					else {
+////						if(successor.isALeftSon())
+////							successorOriginalParent.leftSon = null;
+////						else if(successor.isARightSon())
+////							successorOriginalParent.rightSon = null;
+////					}
+////					successor.rightSon=toDelete.rightSon; //TODO ?
+////					successor.rightSon.parent=successor;//TODO?
+////
+////
+////					successorOriginalParent.updateHeightAndBalance();
+////					//TODO?
+////				}
+//
+//				newCurrent = successor;
+//			}
+//		}
+//		return newCurrent;
 			}
 		}
-		return newCurrent;
 	}
-
 	//TODO rename method
 	private void checkDisorder(AvlNode node) {
-		if (node == null) {
-			return;
-		}
-		int currentBalance = node.balanceFactor;
-		if (currentBalance == VIOLATION_LEFT) {
-			if (node.leftSon.balanceFactor == VIOLATION_LEFT_RIGHT) {
-				rotateLeft(node.leftSon);
+		while (node!=null){
+			node.updateHeightAndBalance();
+			int currentBalance = node.balanceFactor;
+			if (currentBalance == VIOLATION_LEFT) {
+				if (node.leftSon.balanceFactor == VIOLATION_LEFT_RIGHT) {
+					rotateLeft(node.leftSon);
+				}
+				rotateRight(node);
 			}
-			rotateRight(node);
-		}
-		if (currentBalance == VIOLATION_RIGHT) {
-			if (node.rightSon.balanceFactor == VIOLATION_RIGHT_LEFT) {
-				rotateRight(node.rightSon);
+			if (currentBalance == VIOLATION_RIGHT) {
+				if (node.rightSon.balanceFactor == VIOLATION_RIGHT_LEFT) {
+					rotateRight(node.rightSon);
+				}
+				rotateLeft(node);
 			}
-			rotateLeft(node);
+			node.updateHeightAndBalance();
+			node=node.parent;
 		}
 	}
 
@@ -503,9 +615,10 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 			return true;
 		}
 		// binary search operation with Operator add.
-		int retValue = binarySearchOperation(newValue, ROOT_HEIGHT, root, Operator.ADD);
+//		int retValue = binarySearchOperation(newValue, ROOT_HEIGHT, root, Operator.ADD);
+		int retVal=probe(newValue,Operator.ADD);
 		// if the return value indicates the tree contains the value, return false.
-		if (retValue == CONTAINS_INDICATOR) {
+		if (retVal== CONTAINS_INDICATOR) {
 			return false;
 		}
 		numOfNodes++;
@@ -521,7 +634,8 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 * value if it was found in the tree, -1 otherwise.
 	 */
 	public int contains(int searchVal) {
-		return binarySearchOperation(searchVal, ROOT_HEIGHT, root, Operator.CONTAINS);
+		return probe(searchVal,Operator.CONTAINS);
+//		return binarySearchOperation(searchVal, ROOT_HEIGHT, root, Operator.CONTAINS);
 	}
 
 	/**
@@ -532,9 +646,10 @@ public class AvlTree implements Tree,Iterable<Integer>  {
 	 */
 	public boolean delete(int toDelete) {
 		// binary search operation with Operator add.
-		int retValue = binarySearchOperation(toDelete, ROOT_HEIGHT, root, Operator.DELETE);
+//		int retValue = binarySearchOperation(toDelete, ROOT_HEIGHT, root, Operator.DELETE);
+		int retVal=probe(toDelete,Operator.DELETE);
 		// if not contains, return false.
-		if (retValue == NOT_CONTAINED_INDICATOR) {
+		if (retVal == NOT_CONTAINED_INDICATOR) {
 			return false;
 		}
 		// deleting was successful, return true.
