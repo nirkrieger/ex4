@@ -31,16 +31,16 @@
 
 //test8:
 //end cases that might or should throw exceptions.
+package oop.ex4.data_structures;
 
-
-import oop.ex4.data_structures.AvlTree;
+//import oop.ex4.data_structures.AvlTree;
 import org.junit.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-//package oop.ex4.data_structures;
+
 
 
 public class Tester_oop_ex4 {
@@ -187,13 +187,9 @@ public class Tester_oop_ex4 {
 		for (Iterator<Integer> it = tree.iterator(); it.hasNext(); ) {
 			fail("iterator should be empty");
 		}
-		//TODO: FIND OUT WHAT HAPPENED.
-		/**
 		for (int ignored : tree) {
 			fail("iterator should be empty");
 		}
-		 */
-
 		// iter exceptions
 		Iterator<Integer> iterator = tree.iterator();
 		try {
