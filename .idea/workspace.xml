@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="04b4e33f-f76d-4d23-9464-2a9dacde0bad" name="Default" comment="Final commit, everything works.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/oop/ex4/data_structures/AvlTree.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/oop/ex4/data_structures/AVLTree.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/oop/ex4/data_structures/TESTS.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/oop/ex4/data_structures/README" afterPath="$PROJECT_DIR$/README" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="04b4e33f-f76d-4d23-9464-2a9dacde0bad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oop/ex4/data_structures/Tester_oop_ex4.java" afterPath="$PROJECT_DIR$/src/oop/ex4/data_structures/Tester_oop_ex4.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/oop/ex4/data_structures/Tree.java" afterPath="$PROJECT_DIR$/src/oop/ex4/data_structures/Tree.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -356,8 +349,16 @@
       <option name="presentableId" value="Default" />
       <updated>1526141293594</updated>
       <workItem from="1526225862348" duration="1651000" />
-      <workItem from="1527084951754" duration="6346000" />
+      <workItem from="1527084951754" duration="6363000" />
     </task>
+    <task id="LOCAL-00001" summary="Final commit, everything works.">
+      <created>1527091304282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527091304282</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -393,7 +394,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7997000" />
+    <option name="totallyTimeSpent" value="8014000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
